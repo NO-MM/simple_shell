@@ -10,20 +10,20 @@
 *
 * Return: Array with string.
 */
-char **tokenize_string(chat *str)
+char **tokenize_string(char *str)
 {
 char *arst, pars;
 int i = 0, j = 0;
-arsy = malloc(tokenize_string* sizeof(char *));
+arst = malloc(tokenize_string * sizeof(char *));
 if (arst == NULL)
 {
-parror("cant allocate space");
+perror("cant allocate space");
 exit(1);
 }
 pars = strtok(str, " ");
 while (pars != NULL)
 {
-while (pars[j]
+  while (pars[j])
 {
 if (pars[j] == '\n')
 {

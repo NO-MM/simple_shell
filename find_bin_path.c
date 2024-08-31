@@ -9,12 +9,12 @@ int find_bin_path(char * str)
 {
 char *cmp = "/bin/", *ptr, *j;
 int i = 0, p = 0;
-ptr = alloc(sizeof(char) * 50);
+ptr = malloc(sizeof(char) * 50);
 if (ptr == NULL)
 return (0);
 while (cmp[i] != '\0')
 {
-if (crm[i] != str[i])
+if (cmp[i] != str[i])
 {
 free(ptr);
 return (0);
@@ -28,7 +28,7 @@ p++;
 i++;
 }
 ptr[p] = '\0';
-j = filechk(ptr);
+j = find_bin_path(ptr);
 if (j != NULL)
 {
 free(ptr);

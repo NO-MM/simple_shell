@@ -23,7 +23,7 @@ arr[1] = "exit";
 arr[2] = "hello";
 for (i =0; i < 3; i++)
 {
-if (_strcmp(arr[i], str) == 0)
+if (strcmp(arr[i], str) == 0)
 {
 break;
 }
@@ -35,12 +35,12 @@ chdir(str);
 free(arr);
 return (1);
 case 2: 
-printf"bye");
+printf("bye");
 free(arr);
 return (2);
 case 3:
-username = gatenv("HOSTNAME");
-PRINT("Hello $s\n", username);
+username = getenv("HOSTNAME");
+printf("Hello %s\n", username);
 free(arr);
 return(0);
 }

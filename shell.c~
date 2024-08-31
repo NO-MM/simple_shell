@@ -1,3 +1,4 @@
+
 #include "main.h"
 #include <sys/wait.h>
 #include <stdio.h>
@@ -35,11 +36,11 @@ if (*ptr != '\n')
 string = chstrtok(ptr);
 if (_strcmp("exit", string[0]) == 0)
 break:
-imbt = checkinbuilt(strinng[0]);
-nc = filechk(string[0]);
+imbt = execute_builtin(strinng[0]);
+nc = find_path (string[0]);
 if (imb == 0 && nc != NULL)
 string[0] = nc;
-pt = pathchk(string[0]);
+pt = find_bin_path(string[0]);
 if (pt == 1)
 forkexe(string, envp);
 if (nc == NULL && pt == 0 && imbt == 0)
