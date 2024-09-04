@@ -11,19 +11,24 @@
 * @envp: An array of environment variables.
 * Return: Always 0.
 */
-int main(int arg, char *argv[], char *envp[])
+int main(int argc, char *argv[], char *envp[])
 {
 char **string = NULL;
-ssize_t buffer_size = 20, imbt = 0, pt = 4;
+size_t buffer_size = 20, imbt = 0, pt = 4;
 ssize_t num_char_read;
-char *ptr, *nc;
-if (argv > 1)
+char *ptr = NULL, *nc = NULL;
+if (argc > 1)
 argv[1] = NULL;
 while (1)
 {
 if (isatty(STDIN_FILENO))
 printf("#cisfun$ ");
-ptr = malloc(sizeof(char) * nc);
+ptr = malloc(buffer_size * sizeof(char));
+if (ptr == NULL)
+{
+perror("malloc");
+exit(EXIT_FAILURE);
+}
 num_char_read = getline(&ptr, &buffer_size, stdin);
 if (num_char_read == -1)
 {
@@ -32,21 +37,22 @@ exit(EXIT_FAILURE);
 }
 if (*ptr != '\n')
 {
-string = chstrtok(ptr);
-if (strcmp("exit", string[0]) == 0)
+string = strtok(ptr, "\t\n");
+if (strcmp("exit", string) == 0)
 break;
-imbt = execute_builtin(strinng[0]);
-nc = find_path (string[0]);
+imbt = execute_builtin(string);
+nc = find_path(string);
 if (imbt == 0 && nc != NULL)
-string[0] = nc;
-pt = find_bin_path(string[0]);
+string = nc;
+pt = find_bin_path(string);
 if (pt == 1)
 forkexe(string, envp);
 if (nc == NULL && pt == 0 && imbt == 0)
-printf("./shell: No such file or directory \n");
+printf("./shell: No such file or directory\n");
 }
 }
 free(nc);
 free(ptr);
-free (string);
+free(string);
 exit(0);
+}

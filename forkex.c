@@ -14,9 +14,9 @@
 void forkexe(char **arstr, char *envp[])
 {
 pid_t child_process_id;
-int status
+ int status;
 child_process_id = fork();
-if (child_process_id< 0)
+if (child_process_id < 0)
 {
 perror("Error: Fork issues");
 return;
@@ -29,4 +29,5 @@ perror("./shell: No such file or directory\n");
 else
 {
 wait(&status);
+}
 }

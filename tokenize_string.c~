@@ -23,7 +23,7 @@ exit(1);
 pars = strtok(str, " ");
 while (pars != NULL)
 {
-while (pars[j])
+  while (pars[j])
 {
 if (pars[j] == '\n')
 {

@@ -9,6 +9,6 @@ int main(int arg, char *argv[], char *envp[]);
 void forkexe(char **arstr, char *envp[]);
 char *find_path(char *str);
 char **tokenize_string(char *str);
-int find_bin_path(char * str);
+int find_bin_path(char *str);
 int execute_builtin(char *str);
 #endif

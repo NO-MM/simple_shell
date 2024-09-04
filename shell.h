@@ -1,8 +1,8 @@
-
 #ifndef SHELL_H
 #define SHELL_H
 #include  <stdio.h>
 #include <unistd.h>
+int adding(int num1, int num2, int num3);
 void prompt(char **av, char ** env);
 int main(int ac, char **av, char ** env);
 int main(int arg, char *argv[], char *envp[]);

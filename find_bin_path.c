@@ -1,14 +1,15 @@
 #include <stdlib.h>
 /** 
-* find_bin_path - A function to check if the string has the path "/bin/"
-*@sTR: A string to carry out the check.
+* find_bin_path - A function to check if the string 
+* has the path "/bin/"
+* @str: A string to carry out the check.
 *
 * Return: 0 if false and 1 if true that the path is found.
 */
 int find_bin_path(char * str)
 {
-char *cmp = "/bin/", *ptr, *j;
-int i = 0, p = 0;
+char *cmp = "/bin/", *ptr;
+ int i = 0, p = 0, j;
 ptr = malloc(sizeof(char) * 50);
 if (ptr == NULL)
 return (0);
@@ -29,7 +30,7 @@ i++;
 }
 ptr[p] = '\0';
 j = find_bin_path(ptr);
-if (j != NULL)
+if (j != 0)
 {
 free(ptr);
 return (1);
